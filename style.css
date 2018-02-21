@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Helvetica Neue, Helvetica, sans-serif;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #333;
+}
+
+.addButton {
+  color: #ffda00;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  border: 2px solid #ffda00;
+  padding: 10px 40px;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/COMdoWZ.png);
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-position: 7% 50%;
+  border-radius: 5px;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.addButton:hover {
+  color: #000000;
+  background-color: #ffda00;
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  background-position: 10% 50%;
+  cursor: pointer;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+
+.addButton:focus {
+  outline: none;
+}
+
+.details,
+.dashboard {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  overflow-y: scroll;
+  padding: 15px 30px;
+  border-radius: 5px;
+  min-width: 1400px;
+}
+
+.dashboard > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dashboard > header + div {
+  margin-top: 35px;
+}
+
+header {
+  z-index: 10;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+  padding: 8px 5%;
+}
+
+.details > div {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+.details > div > iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 40%;
+}
+
+header > input,
+.card_form > div > input {
+  min-width: 250px;
+  max-width: 350px;
+  width: 33%;
+  padding: 4px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.details > section > img,
+.details > section > h3 {
+  width: 8%;
+}
+
+.details > section > * {
+  margin: 0 1%;
+}
+
+.details > section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.details > header + section {
+  margin-top: 35px;
+}
