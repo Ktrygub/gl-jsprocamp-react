@@ -39,6 +39,7 @@ html {
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
+
 .addButton:hover {
   color: #000000;
   background-color: #ffda00;
@@ -77,11 +78,11 @@ html {
   align-items: center;
 }
 
-.dashboard > header + div {
+.dashboard > .header + div {
   margin-top: 35px;
 }
 
-header {
+.header {
   z-index: 10;
   position: fixed;
   display: flex;
@@ -111,7 +112,7 @@ header {
   height: 40%;
 }
 
-header > input,
+.header > input,
 .card_form > div > input {
   min-width: 250px;
   max-width: 350px;
@@ -119,6 +120,10 @@ header > input,
   padding: 4px;
   border: 2px solid #ccc;
   border-radius: 4px;
+}
+
+.details {
+  color: white;
 }
 
 .details > section > img,
@@ -137,6 +142,6 @@ header > input,
   margin-bottom: 25px;
 }
 
-.details > header + section {
+.details > .header + section {
   margin-top: 35px;
 }
