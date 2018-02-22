@@ -3,15 +3,24 @@ import ReactDOM from 'react-dom'
 import { Route, Switch, BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
+import 'semantic-ui-css/semantic.min.css'
+
 import store from './redux/store'
-import registerServiceWorker from './registerServiceWorker'
+import { addInitMovies } from './redux/actions/actions'
+
 import Dashboard from './components/pages/DashboardPage'
+import DetailsRoute from './components/routes/DetailsRoute'
 import Details from './components/pages/DetailsPage'
 import FourOhFour from './components/pages/404'
 
-import DetailsRoute from './components/routes/DetailsRoute'
+import registerServiceWorker from './registerServiceWorker'
 
 import backgroundImage from './img/background.jpg'
+
+if (localStorage.ReactAppHW) {
+  const movies = JSON.parse(localStorage.getItem('ReactAppHW'))
+  store.dispatch(addInitMovies(movies))
+}
 
 const App = () => (
   <Provider store={store}>
@@ -23,21 +32,8 @@ const App = () => (
       }}
     >
       <Switch>
-        <Route exact path="/">
-          <Dashboard />
-        </Route>
-
-        {/* <Route
-          path="/details/:id"
-          render={props => {
-            const show = preload.shows.find(
-              item => item.imdbID === props.match.params.id
-            )
-            return show ? <Details {...props} {...show} /> : <Redirect to='/'/>
-          }}
-        /> */}
+        <Route exact path="/" component={Dashboard} />
         <DetailsRoute path="/details/:id" exact component={Details} />
-
         <Route default component={FourOhFour} />
       </Switch>
     </div>

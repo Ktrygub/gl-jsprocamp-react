@@ -5,6 +5,9 @@ import styled from 'styled-components'
 import uuid from 'uuid'
 
 import starIcon from '../img/star.png'
+import emptyStarIcon from '../img/empty_star.png'
+import notAvailablePoster from '../img/posters/not_available_poster.png'
+import defaultPoster from '../img/posters/film_strip.png'
 
 const Wrapper = styled(Link)`
   width: 32%;
@@ -16,6 +19,9 @@ const Wrapper = styled(Link)`
   text-decoration: none;
   color: black;
   background-color: rgba(220, 220, 220, 0.7);
+  &:hover {
+    color: black;
+  }
 `
 
 const Image = styled.img`
@@ -27,33 +33,37 @@ const Image = styled.img`
   background-size: contain;
 `
 
-const MovieCard = props => (
-  <Wrapper to={`/details/${props.imdbID}`} className="movie-card">
-    <Image
-      src={require(`../img/posters/${props.poster}`)} // eslint-disable-line
-      alt={`${props.title} movie poster`}
-    />
-    <div>
-      <h3>{props.title}</h3>
-      {[...Array(parseInt(props.rating, 10))].map(() => (
-        <img
-          src={starIcon}
-          key={uuid()}
-          alt="star"
-          style={{ display: 'inline', width: '4%' }}
-        />
-      ))}
+const MovieCard = props => {
+  let poster = props.Poster
+  if (props.Poster === 'N/A') poster = notAvailablePoster
+  if (!props.Poster) poster = defaultPoster
+  return (
+    <Wrapper to={`/details/${props.imdbID}`} className="movie-card">
+      <Image src={poster} alt={`${props.Title} movie poster`} />
 
-      <p>{props.description}</p>
-    </div>
-  </Wrapper>
-)
+      <div>
+        <h3>{props.Title}</h3>
+
+        {[...Array(5)].map((el, i) => (
+          <img
+            style={{ display: 'inline', width: '4%' }}
+            src={i < props.Rating ? starIcon : emptyStarIcon}
+            key={uuid()}
+            alt="star"
+          />
+        ))}
+
+        <p>{props.Plot}</p>
+      </div>
+    </Wrapper>
+  )
+}
 
 MovieCard.propTypes = {
-  poster: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  rating: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+  Poster: PropTypes.string.isRequired,
+  Title: PropTypes.string.isRequired,
+  Rating: PropTypes.string.isRequired,
+  Plot: PropTypes.string.isRequired,
   imdbID: PropTypes.string.isRequired
 }
 

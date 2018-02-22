@@ -4,7 +4,9 @@ import { Route, Redirect, withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const DetailsRoute = ({ component: Component, movies, ...rest }) => {
-  const movie = movies.find(item => item.imdbID === rest.computedMatch.params.id)
+  const movie = movies.find(
+    item => item.imdbID === rest.computedMatch.params.id
+  )
   return (
     <Route
       {...rest}

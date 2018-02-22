@@ -1,2 +1,3 @@
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM'
 export const ADD_MOVIE = 'ADD_MOVIE'
+export const ADD_INIT_MOVIES = 'ADD_INIT_MOVIES'

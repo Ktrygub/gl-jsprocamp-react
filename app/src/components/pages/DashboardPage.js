@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import uuid from 'uuid'
 
 import MovieCard from '../MovieCard'
-// import AddMovieForm from '../forms/AddMovieForm'
-import TestForm from '../forms/TestForm'
+import AddMovieForm from '../forms/AddMovieForm'
 import {
   handleSearchTermChange,
   submitMovie
@@ -14,18 +12,19 @@ import {
 class Dashboard extends React.Component {
   state = { isAddFormVisible: false }
 
-  // submitMonster = monster => {
-  //   const { monsterClasses } = this.props.database
-  //   const currClass = monster.monsterClass
-  //   if (Object.prototype.hasOwnProperty.call(monsterClasses, currClass)) {
-  //     Object.assign(monster, monsterClasses[currClass])
-  //   }
+  toggleAddMovieForm = () =>
+    this.setState(prevState => ({
+      ...prevState,
+      isAddFormVisible: !prevState.isAddFormVisible
+    }))
 
-  //   this.props.createMonster(monster)
-  // }
-  toggleAddMovieForm = () => this.setState(prevState => ({...prevState, isAddFormVisible: !prevState.isAddFormVisible}))
-
-  submitForm = movie => {
+  submitForm = data => {
+    const { Title, Rating, Plot, Poster, imdbID } = data
+    const movie = { Title, Rating, Plot, Poster, imdbID, Trailer: '' }
+    localStorage.setItem(
+      'ReactAppHW',
+      JSON.stringify([movie, ...this.props.movies])
+    )
     this.props.submitMovie(movie)
   }
 
@@ -34,7 +33,7 @@ class Dashboard extends React.Component {
 
     return (
       <div className="dashboard">
-        <header>
+        <span className="header">
           <input
             type="text"
             placeholder="Search"
@@ -42,31 +41,27 @@ class Dashboard extends React.Component {
             onChange={handleSearchTermChange}
           />
 
-          <button
-            className="addButton"
-            onClick={this.toggleAddMovieForm}
-          >ADD MOVIE</button>
-          {/* <div
-            className="addButton"
-            
-          >
-          <a onClick={this.toggleAddMovieForm}>NEW MOVIE</a>
-            
-          </div> */}
-        </header>
+          <button className="addButton" onClick={this.toggleAddMovieForm}>
+            ADD MOVIE
+          </button>
+        </span>
 
-        {this.state.isAddFormVisible && <TestForm toggleAddMovieForm={this.toggleAddMovieForm} submit={this.submitForm} />}
-        
+        {this.state.isAddFormVisible && (
+          <AddMovieForm
+            toggleAddMovieForm={this.toggleAddMovieForm}
+            submit={this.submitForm}
+          />
+        )}
 
         <div>
           {movies
             .filter(
               movie =>
-                `${movie.title} ${movie.description}`
+                `${movie.Title} ${movie.Plot}`
                   .toUpperCase()
-                  .indexOf(dashboardSearch.toUpperCase()) >= 0
+                  .includes(dashboardSearch.toUpperCase())
             )
-            .map(movie => <MovieCard key={uuid()} {...movie} />)}
+            .map(movie => <MovieCard key={movie.imdbID} {...movie} />)}
         </div>
       </div>
     )
@@ -79,8 +74,8 @@ Dashboard.propTypes = {
   dashboardSearch: PropTypes.string.isRequired,
   movies: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string,
+      Title: PropTypes.string,
+      Plot: PropTypes.string,
       imdbID: PropTypes.string
     })
   ).isRequired
