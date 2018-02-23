@@ -1,10 +1,8 @@
 import React from 'react'
 // import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import uuid from 'uuid'
 
-import starIcon from '../../img/star.png'
-import emptyStarIcon from '../../img/empty_star.png'
+import RatingToStars from '../atoms/RatingToStars'
 import notAvailablePoster from '../../img/posters/not_available_poster.png'
 import defaultPoster from '../../img/posters/film_strip.png'
 
@@ -34,14 +32,9 @@ class DetailsPage extends React.Component {
         <section>
           <h1>{Title}</h1>
 
-          {[...Array(5)].map((el, i) => (
-            <img
-              style={{ display: 'inline', width: '2%', margin: '1px' }}
-              src={i < Rating ? starIcon : emptyStarIcon}
-              key={uuid()}
-              alt="star"
-            />
-          ))}
+          <div style={{ fontSize: '77%', display: 'inline-table' }}>
+            <RatingToStars rating={Rating} />
+          </div>
 
           <img src={poster} alt={`${Title} movie poster`} />
 

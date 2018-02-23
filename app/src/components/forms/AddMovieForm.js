@@ -4,11 +4,13 @@ import { Dropdown } from 'semantic-ui-react'
 import axios from 'axios'
 
 import './AddMovieForm.css'
+
+import SelectRating from '../atoms/SelectRating'
 import notAvailablePoster from '../../img/posters/not_available_poster.png'
 import defaultPoster from '../../img/posters/film_strip.png'
 
-const OMDB_URL_BY_ID = 'http://www.omdbapi.com/?apikey=ad3a71c2&i='
-const OMDB_URL_BY_TITLE = 'http://www.omdbapi.com/?apikey=ad3a71c2&s='
+const OMDB_URL_BY_ID = 'https://www.omdbapi.com/?apikey=ad3a71c2&i='
+const OMDB_URL_BY_TITLE = 'https://www.omdbapi.com/?apikey=ad3a71c2&s='
 
 const getByID = imdbID => axios.get(`${OMDB_URL_BY_ID}${imdbID}`)
 
@@ -114,13 +116,12 @@ class TestForm extends React.Component {
             <img src={poster} alt={`${this.state.movie.Title} movie poster`} />
           </div>
           <div className="card_right">
-
             <div className="title_dropdown">
               <Dropdown
                 className="Dropdown"
                 fluid
                 search
-                placeholder={this.state.errors.title || 'Title...'}
+                placeholder={this.state.errors.title || 'Start search here...'}
                 onSearchChange={this.onSearchChange}
                 options={this.state.options}
                 loading={this.state.loading}
@@ -129,54 +130,7 @@ class TestForm extends React.Component {
             </div>
 
             <div className="card_right__details">
-              <div className="card_right__rating">
-                <div className="card_right__rating__stars">
-                  <fieldset className="rating">
-                    {/* eslint-disable jsx-a11y/label-has-for */}
-                    <input
-                      id="star5"
-                      name="rating"
-                      type="radio"
-                      value="5"
-                      onClick={this.onRatingClick}
-                    />
-                    <label htmlFor="star5" title="5 stars" />
-                    <input
-                      id="star4"
-                      name="rating"
-                      type="radio"
-                      value="4"
-                      onClick={this.onRatingClick}
-                    />
-                    <label htmlFor="star4" title="4 stars" />
-                    <input
-                      id="star3"
-                      name="rating"
-                      type="radio"
-                      value="3"
-                      onClick={this.onRatingClick}
-                    />
-                    <label htmlFor="star3" title="3 stars" />
-                    <input
-                      id="star2"
-                      name="rating"
-                      type="radio"
-                      value="2"
-                      onClick={this.onRatingClick}
-                    />
-                    <label htmlFor="star2" title="2 stars" />
-                    <input
-                      id="star1"
-                      name="rating"
-                      type="radio"
-                      value="1"
-                      onClick={this.onRatingClick}
-                    />
-                    <label htmlFor="star1" title="1 star" />
-                    {/* eslint-enable jsx-a11y/label-has-for */}
-                  </fieldset>
-                </div>
-              </div>
+              <SelectRating onClick={this.onRatingClick} />
 
               <textarea
                 rows={6}

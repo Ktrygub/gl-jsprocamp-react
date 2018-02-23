@@ -126,8 +126,7 @@ html {
   color: white;
 }
 
-.details > section > img,
-.details > section > h3 {
+.details > section > img {
   width: 8%;
 }
 

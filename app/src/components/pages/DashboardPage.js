@@ -55,11 +55,10 @@ class Dashboard extends React.Component {
 
         <div>
           {movies
-            .filter(
-              movie =>
-                `${movie.Title} ${movie.Plot}`
-                  .toUpperCase()
-                  .includes(dashboardSearch.toUpperCase())
+            .filter(movie =>
+              `${movie.Title} ${movie.Plot}`
+                .toUpperCase()
+                .includes(dashboardSearch.toUpperCase())
             )
             .map(movie => <MovieCard key={movie.imdbID} {...movie} />)}
         </div>

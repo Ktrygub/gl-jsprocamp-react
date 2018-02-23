@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
 body {
   background: #e2e2e2;
   height: 100vh;
@@ -43,6 +43,10 @@ body .card_right {
   -moz-border-radius: 0 10px 10px 0;
 }
 
+.card_right__details {
+  margin-top: 1em;
+}
+
 .title_dropdown {
   width: 80%;
   margin: 10px auto;
@@ -55,7 +59,7 @@ body .card_right {
   padding: 5px 10px;
 }
 
-.Dropdown>input.search {
+.Dropdown > input.search {
   color: white;
   text-align: center;
   font-size: 2em;
@@ -69,84 +73,20 @@ body .card_right {
   width: 100%;
 }
 
-.ui.search.dropdown.active>.text, 
-.ui.search.dropdown.visible>.text {
+.ui.search.dropdown.active > .text,
+.ui.search.dropdown.visible > .text {
   height: 35px;
 }
 
-.ui.dropdown>.text {
+.ui.dropdown > .text {
   color: white;
   font-size: 2em;
   line-height: 1em;
 }
 
-.ui.dropdown:not(.button)>.default.text {
+.ui.dropdown:not(.button) > .default.text {
   color: white;
 }
-
-body .card_right__details {
-  margin-top: 1em;
-}
-
-body .card_right__rating__stars fieldset {
-  display: inline-block;
-}
-
-body .card_right__rating__stars .rating {
-  border: none;
-}
-
-body .card_right__rating__stars .rating > input {
-  display: none;
-}
-
-body .card_right__rating__stars .rating > label:before {
-  margin: 6px;
-  font-size: 1.25em;
-  display: inline-block;
-  content: '\f005';
-  font-family: FontAwesome;
-}
-
-body .card_right__rating__stars .rating > label {
-  color: #ddd;
-  float: right;
-}
-
-body .card_right__rating__stars .rating > input:checked ~ label,
-body .card_right__rating__stars .rating:not(:checked) > label:hover,
-body .card_right__rating__stars .rating:not(:checked) > label:hover ~ label {
-  color: #ffd700;
-}
-
-body .card_right__rating__stars .rating > input:checked + label:hover,
-body .card_right__rating__stars .rating > input:checked ~ label:hover,
-body .card_right__rating__stars .rating > label:hover ~ input:checked ~ label,
-body .card_right__rating__stars .rating > input:checked ~ label:hover ~ label {
-  color: #ffed85;
-}
-
-/* body .card_right .editable {
-  color: white;
-  background-color: black;
-  outline: none;
-  font-family: 'Montserrat', sans-serif;
-} */
-
-/* body .card_right .editable h1 {
-  text-align: center;
-  font-weight: 400;
-  font-size: 40px;
-  margin: 30px 0 0 0;
-  letter-spacing: 1px;
-}
-
-body .card_right .editable p {
-  text-align: left;
-  padding: 0 40px 0 40px;
-  font-size: 12px;
-  line-height: 20px;
-} */
 
 .movie_description {
   padding: 10px 5px;

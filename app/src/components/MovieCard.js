@@ -2,10 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import uuid from 'uuid'
 
-import starIcon from '../img/star.png'
-import emptyStarIcon from '../img/empty_star.png'
+import RatingToStars from './atoms/RatingToStars'
 import notAvailablePoster from '../img/posters/not_available_poster.png'
 import defaultPoster from '../img/posters/film_strip.png'
 
@@ -43,15 +41,9 @@ const MovieCard = props => {
 
       <div>
         <h3>{props.Title}</h3>
-
-        {[...Array(5)].map((el, i) => (
-          <img
-            style={{ display: 'inline', width: '4%' }}
-            src={i < props.Rating ? starIcon : emptyStarIcon}
-            key={uuid()}
-            alt="star"
-          />
-        ))}
+        <div style={{ fontSize: '77%', display: 'inline-table' }}>
+          <RatingToStars rating={props.Rating} />
+        </div>
 
         <p>{props.Plot}</p>
       </div>
