@@ -19,10 +19,10 @@ class Dashboard extends React.Component {
     }))
 
   submitForm = data => {
-    const { Title, Rating, Plot, Poster, imdbID } = data
-    const movie = { Title, Rating, Plot, Poster, imdbID, Trailer: '' }
+    const {Title, Year, Runtime, Genre, Director, Actors, Plot, Poster, imdbID, Website, Rating} = data
+    const movie = { Title, Year, Runtime, Genre, Director, Actors, Plot, Poster, imdbID, Website, Rating, Trailer: '' }
     localStorage.setItem(
-      'ReactAppHW',
+      'ReactAppHW_V2',
       JSON.stringify([movie, ...this.props.movies])
     )
     this.props.submitMovie(movie)

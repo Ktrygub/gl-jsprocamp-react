@@ -1,0 +1,87 @@
+import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { Redirect } from 'react-router-dom'
+
+import RatingToStars from '../atoms/RatingToStars'
+import notAvailablePoster from '../../img/posters/not_available_poster.png'
+import defaultPoster from '../../img/posters/film_strip.png'
+
+/* eslint-disable react/prefer-stateless-function */
+
+class DetailsPage extends React.Component {
+  render() {
+    if (!this.props.movie) {
+      return <Redirect to="/" />
+    }
+
+    const { Title, Rating, Poster, Plot, Trailer } = this.props.movie
+    let poster = Poster
+    if (Poster === 'N/A') poster = notAvailablePoster
+    if (Poster === '') poster = defaultPoster
+
+    return (
+      <div className="details">
+        <span className="header">
+          <p />
+          <button
+            className="addButton"
+            onClick={() => {
+              this.props.history.push('/')
+            }}
+          >
+            BACK
+          </button>
+        </span>
+
+        <section>
+          <h1>{Title}</h1>
+
+          <div
+            style={{ fontSize: '70%', padding: '2px', display: 'inline-table' }}
+          >
+            <RatingToStars rating={Rating} />
+          </div>
+
+          <img src={poster} alt={`${Title} movie poster`} />
+
+          <p>{Plot}</p>
+        </section>
+
+        <div>
+          {Trailer && (
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${Trailer}?rel=0&amp;showinfo=0&amp;controls=0`}
+              frameBorder="0"
+              allowFullScreen
+              title={`Trailer for ${Title}`}
+            />
+          )}
+        </div>
+      </div>
+    )
+  }
+}
+DetailsPage.defaultProps = {
+  movie: undefined
+}
+
+DetailsPage.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Plot: PropTypes.string.isRequired,
+    Poster: PropTypes.string.isRequired,
+    Trailer: PropTypes.string.isRequired,
+    Rating: PropTypes.string.isRequired,
+    imdbID: PropTypes.string.isRequired
+  })
+}
+
+const mapStateToProps = (state, ownProps) => ({
+  movie: state.database.movies.find(
+    item => item.imdbID === ownProps.match.params.id
+  )
+})
+
+export default connect(mapStateToProps, null)(DetailsPage)

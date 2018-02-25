@@ -6,7 +6,13 @@ const persistedStateDatabase = {database : {
             "Plot": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son, John Connor, from a more advanced cyborg.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0103064",
-            "Trailer": "7QXDPzx71jQ"
+            "Trailer": "7QXDPzx71jQ",
+            "Year": "1991",
+            "Runtime":"137 min" ,
+            "Genre": "Action, Sci-Fi, Thriller",
+            "Director": "James Cameron",
+            "Actors": "Arnold Schwarzenegger, Linda Hamilton, Edward Furlong, Robert Patrick",
+            "Website": "N/A"
         },
         {
             "Title": "The Shawshank Redemption",
@@ -14,7 +20,13 @@ const persistedStateDatabase = {database : {
             "Plot": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0111161",
-            "Trailer": "6hB3S9bIaco"
+            "Trailer": "6hB3S9bIaco",
+            "Year": "1994",
+            "Runtime":"142 min" ,
+            "Genre": "Crime, Drama",
+            "Director": "Frank Darabont",
+            "Actors": "Tim Robbins, Morgan Freeman, Bob Gunton, William Sadler",
+            "Website": "N/A"
         },
         {
             "Title": "The Dark Knight",
@@ -22,7 +34,13 @@ const persistedStateDatabase = {database : {
             "Plot": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham, the Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0468569",
-            "Trailer": "EXeTwQWrcwY"
+            "Trailer": "EXeTwQWrcwY",
+            "Year": "2008",
+            "Runtime": "152 min",
+            "Genre": "Action, Crime, Thriller",
+            "Director": "Christopher Nolan",
+            "Actors":"Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine" ,
+            "Website": "http://thedarkknight.warnerbros.com/"
         },
         {
             "Title": "Pulp Fiction",
@@ -30,7 +48,13 @@ const persistedStateDatabase = {database : {
             "Plot": "The lives of two mob hitmen, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTkxMTA5OTAzMl5BMl5BanBnXkFtZTgwNjA5MDc3NjE@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0110912",
-            "Trailer": "s7EdQ4FqbhY"
+            "Trailer": "s7EdQ4FqbhY",
+            "Year": "1994",
+            "Runtime":"154 min" ,
+            "Genre":"Crime, Drama" ,
+            "Director": "Quentin Tarantino",
+            "Actors": "Tim Roth, Amanda Plummer, Laura Lovelace, John Travolta",
+            "Website": "N/A"
         },
         {
             "Title": "Fight Club",
@@ -38,7 +62,13 @@ const persistedStateDatabase = {database : {
             "Plot": "An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soapmaker, forming an underground fight club that evolves into something much, much more.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMzFjMWNhYzQtYTIxNC00ZWQ1LThiOTItNWQyZmMxNDYyMjA5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0137523",
-            "Trailer": "SUXWAEX2jlg"
+            "Trailer": "SUXWAEX2jlg",
+            "Year":"1999" ,
+            "Runtime":"139 min" ,
+            "Genre":"Drama" ,
+            "Director": "David Fincher",
+            "Actors": "Edward Norton, Brad Pitt, Meat Loaf, Zach Grenier",
+            "Website": "http://www.foxmovies.com/fightclub/"
         },
         {
             "Title": "Forrest Gump",
@@ -46,7 +76,13 @@ const persistedStateDatabase = {database : {
             "Plot": "The presidencies of Kennedy and Johnson, Vietnam, Watergate, and other history unfold through the perspective of an Alabama man with an IQ of 75.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UY268_CR1,0,182,268_AL_.jpg",
             "imdbID": "tt0109830",
-            "Trailer": "bLvqoHBptjg"
+            "Trailer": "bLvqoHBptjg",
+            "Year":"1994" ,
+            "Runtime": "142 min",
+            "Genre": "Drama, Romance",
+            "Director":"Robert Zemeckis" ,
+            "Actors":"Tom Hanks, Rebecca Williams, Sally Field, Michael Conner Humphreys" ,
+            "Website": "http://www.paramount.com/movies/forrest-gump/"
         },
         {
             "Title": "Star Wars: Episode V - The Empire Strikes Back",
@@ -54,7 +90,13 @@ const persistedStateDatabase = {database : {
             "Plot": "After the rebels are overpowered by the Empire on the ice planet Hoth, Luke Skywalker begins Jedi training with Yoda. His friends accept shelter from a questionable ally as Darth Vader hunts them in a plan to capture Luke.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0080684",
-            "Trailer": "JNwNXF9Y6kY"
+            "Trailer": "JNwNXF9Y6kY",
+            "Year": "1980",
+            "Runtime":"124 min" ,
+            "Genre": "Action, Adventure, Fantasy",
+            "Director": "Irvin Kershner",
+            "Actors": "Mark Hamill, Harrison Ford, Carrie Fisher, Billy Dee Williams",
+            "Website": "http://www.starwars.com/episode-v/"
         },
         {
             "Title": "Inception",
@@ -62,7 +104,13 @@ const persistedStateDatabase = {database : {
             "Plot": "A thief, who steals corporate secrets through the use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt1375666",
-            "Trailer": "YoHD9XEInc0"
+            "Trailer": "YoHD9XEInc0",
+            "Year":"2010" ,
+            "Runtime": "148 min",
+            "Genre": "Action, Adventure, Sci-Fi",
+            "Director": "Christopher Nolan",
+            "Actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Ellen Page, Tom Hardy",
+            "Website": "http://inceptionmovie.warnerbros.com/"
         },
         {
             "Title": "The Matrix",
@@ -70,7 +118,13 @@ const persistedStateDatabase = {database : {
             "Plot": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0133093",
-            "Trailer": "m8e-FF8MsqU"
+            "Trailer": "m8e-FF8MsqU",
+            "Year": "1999",
+            "Runtime":"136 min" ,
+            "Genre": "Action, Sci-Fi",
+            "Director": "Lana Wachowski, Lilly Wachowski",
+            "Actors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving",
+            "Website": "http://www.whatisthematrix.com"
         },
         {
             "Title": "The Silence of the Lambs",
@@ -78,7 +132,13 @@ const persistedStateDatabase = {database : {
             "Plot": "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0102926",
-            "Trailer": "RuX2MQeb8UM"
+            "Trailer": "RuX2MQeb8UM",
+            "Year": "1991",
+            "Runtime": "118 min",
+            "Genre": "Crime, Drama, Thriller",
+            "Director": "Jonathan Demme",
+            "Actors": "Jodie Foster, Lawrence A. Bonney, Kasi Lemmons, Lawrence T. Wrentz",
+            "Website": "N/A"
         },
         {
             "Title": "Léon",
@@ -86,7 +146,13 @@ const persistedStateDatabase = {database : {
             "Plot": "Mathilda, a 12-year-old girl, is reluctantly taken in by Léon, a professional assassin, after her family is murdered. Léon and Mathilda form an unusual relationship, as she becomes his protégée and learns the assassin's trade.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BZDAwYTlhMDEtNTg0OS00NDY2LWJjOWItNWY3YTZkM2UxYzUzXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_UY268_CR4,0,182,268_AL_.jpg",
             "imdbID": "tt0110413",
-            "Trailer": "yoxLYdARO_0"
+            "Trailer": "yoxLYdARO_0",
+            "Year": "1994",
+            "Runtime":"110 min" ,
+            "Genre": "Crime, Drama, Thriller",
+            "Director": "Luc Besson",
+            "Actors": "Jean Reno, Gary Oldman, Natalie Portman, Danny Aiello",
+            "Website": "N/A"
         },
         {
             "Title": "Sen to Chihiro no kamikakushi",
@@ -94,7 +160,13 @@ const persistedStateDatabase = {database : {
             "Plot": "During her family's move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BOGJjNzZmMmUtMjljNC00ZjU5LWJiODQtZmEzZTU0MjBlNzgxL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0245429",
-            "Trailer": "KFbqrwpm-js"
+            "Trailer": "KFbqrwpm-js",
+            "Year": "2001",
+            "Runtime": "125 min",
+            "Genre":"Animation, Adventure, Family" ,
+            "Director": "Hayao Miyazaki, Kirk Wise",
+            "Actors":"Rumi Hiiragi, Miyu Irino, Mari Natsuki, Takashi Naitô",
+            "Website": "http://bventertainment.go.com/movies/spiritedaway"
         },
         {
             "Title": "Interstellar",
@@ -102,7 +174,13 @@ const persistedStateDatabase = {database : {
             "Plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0816692",
-            "Trailer": "Lm8p5rlrSkY"
+            "Trailer": "Lm8p5rlrSkY",
+            "Year": "2014",
+            "Runtime": "169 min",
+            "Genre": "Adventure, Drama, Sci-Fi",
+            "Director": "Christopher Nolan",
+            "Actors": "Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow",
+            "Website": "http://www.InterstellarMovie.com/"
         },
         {
             "Title": "The Green Mile",
@@ -110,7 +188,13 @@ const persistedStateDatabase = {database : {
             "Plot": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt0120689",
-            "Trailer": "Ki4haFrqSrw"
+            "Trailer": "Ki4haFrqSrw",
+            "Year":"1999" ,
+            "Runtime": "189 min",
+            "Genre": "Crime, Drama, Fantasy",
+            "Director": "Frank Darabont",
+            "Actors": "Tom Hanks, David Morse, Michael Clarke Duncan, Bonnie Hunt",
+            "Website": "Tom Hanks, David Morse, Michael Clarke Duncan, Bonnie Hunt"
         },
         {
             "Title": "1+1",
@@ -118,7 +202,13 @@ const persistedStateDatabase = {database : {
             "Plot": "After he becomes a quadriplegic from a paragliding accident, an aristocrat hires a young man from the projects to be his caregiver.",
             "Poster": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYxNDA3MDQwNl5BMl5BanBnXkFtZTcwNTU4Mzc1Nw@@._V1_UX182_CR0,0,182,268_AL_.jpg",
             "imdbID": "tt1675434",
-            "Trailer": "34WIbmXkewU"
+            "Trailer": "34WIbmXkewU",
+            "Year": "2011",
+            "Runtime":"112 min" ,
+            "Genre": "Biography, Comedy, Drama",
+            "Director": "Olivier Nakache, Eric Toledano",
+            "Actors": "François Cluzet, Omar Sy, Anne Le Ny, Audrey Fleurot",
+            "Website": "http://weinsteinco.com/sites/the-intouchables/"
         }
     ]
 }}

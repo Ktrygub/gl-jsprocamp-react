@@ -19,14 +19,13 @@ const RatingToStars = ({ rating, onClick }) => (
           type="radio"
           value={`${TOTAL_STARS - i}`}
           onClick={onClick}
+          defaultChecked={TOTAL_STARS - i === Number.parseFloat(rating)}
         />
         <label
           className={
             TOTAL_STARS - i > rating
               ? `full`
-              : `full checked i ${TOTAL_STARS - i} r ${rating} ${TOTAL_STARS -
-                  i <
-                  rating}`
+              : `full checked`
           }
           htmlFor={`star${TOTAL_STARS - i}`}
           title={`${TOTAL_STARS - i} stars`}
@@ -37,14 +36,13 @@ const RatingToStars = ({ rating, onClick }) => (
           type="radio"
           value={`${TOTAL_STARS - i - 1}.5`}
           onClick={onClick}
+          defaultChecked={TOTAL_STARS - i - 0.5 === Number.parseFloat(rating)}
         />
         <label
           className={
             TOTAL_STARS - i - 0.5 > rating
               ? `half`
-              : `half checked i ${TOTAL_STARS - i} r ${rating} ${TOTAL_STARS -
-                  i <
-                  rating}`
+              : `half checked`
           }
           htmlFor={`star${TOTAL_STARS - i}half`}
           title={`${TOTAL_STARS - i - 1}.5 stars`}

@@ -10,7 +10,7 @@
 }
 
 .rating_to_star > label:before {
-  margin: 6px;
+  margin: 0.2em;
   font-size: 1.25em;
   display: inline-block;
   content: '\f005';

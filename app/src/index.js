@@ -8,17 +8,17 @@ import 'semantic-ui-css/semantic.min.css'
 import store from './redux/store'
 import { addInitMovies } from './redux/actions/actions'
 
-import Dashboard from './components/pages/DashboardPage'
-import DetailsRoute from './components/routes/DetailsRoute'
-import Details from './components/pages/DetailsPage'
+import DashboardPage from './components/pages/DashboardPage'
+// import DetailsRoute from './components/routes/DetailsRoute'
+import DetailsPage from './components/pages/DetailsPage'
 import FourOhFour from './components/pages/404'
 
 import registerServiceWorker from './registerServiceWorker'
 
 import backgroundImage from './img/background.jpg'
 
-if (localStorage.ReactAppHW) {
-  const movies = JSON.parse(localStorage.getItem('ReactAppHW'))
+if (localStorage.ReactAppHW_V2) {
+  const movies = JSON.parse(localStorage.getItem('ReactAppHW_V2'))
   store.dispatch(addInitMovies(movies))
 }
 
@@ -32,8 +32,8 @@ const App = () => (
       }}
     >
       <Switch>
-        <Route exact path="/" component={Dashboard} />
-        <DetailsRoute path="/details/:id" exact component={Details} />
+        <Route exact path="/" component={DashboardPage} />
+        <Route path="/details/:id" exact component={DetailsPage} />
         <Route default component={FourOhFour} />
       </Switch>
     </div>
