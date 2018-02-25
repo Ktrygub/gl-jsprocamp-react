@@ -39,7 +39,6 @@ html {
   transition-property: all;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
-  
 }
 
 .addButton:hover {
@@ -70,7 +69,7 @@ html {
   overflow-y: scroll;
   padding: 15px 30px;
   border-radius: 5px;
-  min-width: 1400px;
+  min-width: 800px;
 }
 
 .dashboard > div {
@@ -100,21 +99,6 @@ html {
   padding: 8px 5%;
 }
 
-/* .details > div {
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-  position: relative;
-} */
-
-/* .details > div > iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 40%;
-} */
-
 .header > input {
   min-width: 250px;
   max-width: 350px;
@@ -123,25 +107,6 @@ html {
   border: 2px solid #ccc;
   border-radius: 4px;
 }
-
-/* .details {
-  color: white;
-} */
-
-/* .details > section > img {
-  width: 8%;
-} */
-
-/* .details > section > * {
-  margin: 0 1%;
-} */
-
-/* .details > section {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-bottom: 25px;
-} */
 
 .details .ui.grid {
   margin: 65px 0 0 0;
@@ -210,15 +175,15 @@ html {
   min-width: 50%;
 }
 
+.details .movie_card .searchable_info,
 .details .movie_card .info {
   width: 100%;
-  height: 100%;
-  padding: 0 25px;
+  padding-bottom: 1em;
   font-size: 200%;
   text-align: left;
 }
 
-.details .movie_card .info > p {
+.details .movie_card .searchable_info > p {
   color: white;
   font-size: 60%;
 }
@@ -234,20 +199,18 @@ html {
   margin: 0 0.2em;
 }
 
-.details .movie_card .info > p > span {
+.details .movie_card .searchable_info > p > a {
   color: #ffda00;
-  font-size: 120%;
-  margin: 0 0.2em;
-  letter-spacing: 2px;
+  margin: 0.2em;
+  letter-spacing: 1px;
   font-style: italic;
-  line-height:120%
-  
+  display: inline-block;
 }
 
-mark {
-  border-radius: 3px;
-  color: transparent;
-  background-color: #b1d5e5;
+.searchable {
+  padding: 0.2em 0.3em;
+  border-radius: 0.6em;
+  background-color: rgba(180, 180, 180, 0.3);
 }
 
 .details .movie_card .info > i:before {
@@ -268,7 +231,24 @@ mark {
 }
 
 .details .buttons .discard {
-  color: #0652DD;
-  border-color: #0652DD;
-  background: black;  
+  color: #0652dd;
+  border-color: #0652dd;
+  background: black;
+}
+
+.details .buttons .delete {
+  color: red;
+  border-color: red;
+  background: black;
+}
+
+.ui.modal {
+  position: relative;
+  top: calc(50% - 60px);
+  left: calc(50% - 180px);
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
 }
