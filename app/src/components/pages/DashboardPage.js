@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
     }
 
     localStorage.setItem(
-      'ReactAppHW_V2',
+      'ReactAppHW_V1.0.0',
       JSON.stringify([movie, ...this.props.movies])
     )
 

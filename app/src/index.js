@@ -16,12 +16,12 @@ import registerServiceWorker from './registerServiceWorker'
 
 import backgroundImage from './img/background.jpg'
 
-if (localStorage.ReactAppHW_V2) {
-  const movies = JSON.parse(localStorage.getItem('ReactAppHW_V2'))
+if (localStorage['ReactAppHW_V1.0.0']) {
+  const movies = JSON.parse(localStorage.getItem('ReactAppHW_V1.0.0'))
   store.dispatch(addInitMoviesAction(movies))
 } else {
   localStorage.setItem(
-    'ReactAppHW_V2',
+    'ReactAppHW_V1.0.0',
     JSON.stringify(store.getState().database.movies)
   )
 }

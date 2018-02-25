@@ -39,9 +39,9 @@ class DetailsPage extends React.Component {
   onDeleteMovie = () => {
     this.props.deleteMovie(this.props.movie.imdbID)
     const newLocalStorage = JSON.parse(
-      localStorage.getItem('ReactAppHW_V2')
+      localStorage.getItem('ReactAppHW_V1.0.0')
     ).filter(el => el.imdbID !== this.props.movie.imdbID)
-    localStorage.setItem('ReactAppHW_V2', JSON.stringify(newLocalStorage))
+    localStorage.setItem('ReactAppHW_V1.0.0', JSON.stringify(newLocalStorage))
     this.props.history.push('/')
   }
 
