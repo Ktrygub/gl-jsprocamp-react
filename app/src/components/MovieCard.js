@@ -41,7 +41,9 @@ const MovieCard = props => {
 
       <div>
         <h3>{props.Title}</h3>
-        <div style={{ fontSize: '70%', padding: '2px', display: 'inline-table' }}>
+        <div
+          style={{ fontSize: '70%', padding: '2px', display: 'inline-table' }}
+        >
           <RatingToStars rating={props.Rating} />
         </div>
 

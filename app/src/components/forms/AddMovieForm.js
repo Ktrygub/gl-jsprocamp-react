@@ -40,7 +40,8 @@ class TestForm extends React.Component {
     getByID(imdbID)
       .then(res => {
         const { data } = res
-        const movie = { ...data, Rating: this.state.movie.Rating, imdbID }
+        const Rating = String(Math.round(data.imdbRating * 2) / 2)
+        const movie = { ...data, Rating }
         this.setState(prevState => ({ ...prevState, movie, loading: false }))
       })
       .catch(() => {
@@ -130,7 +131,10 @@ class TestForm extends React.Component {
             </div>
 
             <div className="card_right__details">
-              <SelectRating onClick={this.onRatingClick} />
+              <SelectRating
+                rating={this.state.movie.Rating}
+                onClick={this.onRatingClick}
+              />
 
               <textarea
                 rows={6}

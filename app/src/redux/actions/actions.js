@@ -1,16 +1,37 @@
-import { SET_SEARCH_TERM, ADD_MOVIE, ADD_INIT_MOVIES } from '../actionTypes'
+import {
+  SET_SEARCH_TERM,
+  ADD_MOVIE,
+  EDIT_MOVIE,
+  DELETE_MOVIE,
+  ADD_INIT_MOVIES
+} from '../actionTypes'
 
 // action creators
-export const setSearchTerm = searchTerm => ({
+export const setSearchTermAction = searchTerm => ({
   type: SET_SEARCH_TERM,
   searchTerm
 })
-export const addMovie = movie => ({ type: ADD_MOVIE, movie })
-export const addInitMovies = movies => ({ type: ADD_INIT_MOVIES, movies })
 
+export const addMovieAction = movie => ({ type: ADD_MOVIE, movie })
+
+export const editMovieAction = (imdbID, newMovie) => ({
+  type: EDIT_MOVIE,
+  imdbID,
+  newMovie
+})
+
+export const deleteMovieAction = imdbID => ({ type: DELETE_MOVIE, imdbID })
+
+export const addInitMoviesAction = movies => ({ type: ADD_INIT_MOVIES, movies })
 
 // dispatchers
-export const handleSearchTermChange = event => dispatch =>
-  dispatch(setSearchTerm(event.target.value))
+export const handleSearchTermChange = value => dispatch =>
+  dispatch(setSearchTermAction(value))
 
-export const submitMovie = movie => dispatch => dispatch(addMovie(movie))
+export const addMovie = movie => dispatch => dispatch(addMovieAction(movie))
+
+export const editMovie = (imdbID, newMovie) => dispatch =>
+  dispatch(editMovieAction(imdbID, newMovie))
+
+export const deleteMovie = imdbID => dispatch =>
+  dispatch(deleteMovieAction(imdbID))

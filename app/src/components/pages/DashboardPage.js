@@ -4,10 +4,7 @@ import { connect } from 'react-redux'
 
 import MovieCard from '../MovieCard'
 import AddMovieForm from '../forms/AddMovieForm'
-import {
-  handleSearchTermChange,
-  submitMovie
-} from '../../redux/actions/actions'
+import { handleSearchTermChange, addMovie } from '../../redux/actions/actions'
 
 class Dashboard extends React.Component {
   state = { isAddFormVisible: false }
@@ -19,13 +16,40 @@ class Dashboard extends React.Component {
     }))
 
   submitForm = data => {
-    const {Title, Year, Runtime, Genre, Director, Actors, Plot, Poster, imdbID, Website, Rating} = data
-    const movie = { Title, Year, Runtime, Genre, Director, Actors, Plot, Poster, imdbID, Website, Rating, Trailer: '' }
+    const {
+      Title,
+      Year,
+      Runtime,
+      Genre,
+      Director,
+      Actors,
+      Plot,
+      Poster,
+      imdbID,
+      Website,
+      Rating
+    } = data
+    const movie = {
+      Title,
+      Year,
+      Runtime,
+      Genre,
+      Director,
+      Actors,
+      Plot,
+      Poster,
+      imdbID,
+      Website,
+      Rating,
+      Trailer: ''
+    }
+
     localStorage.setItem(
       'ReactAppHW_V2',
       JSON.stringify([movie, ...this.props.movies])
     )
-    this.props.submitMovie(movie)
+
+    this.props.addMovie(movie)
   }
 
   render() {
@@ -38,7 +62,7 @@ class Dashboard extends React.Component {
             type="text"
             placeholder="Search"
             value={dashboardSearch}
-            onChange={handleSearchTermChange}
+            onChange={e => handleSearchTermChange(e.target.value)}
           />
 
           <button className="addButton" onClick={this.toggleAddMovieForm}>
@@ -56,7 +80,9 @@ class Dashboard extends React.Component {
         <div>
           {movies
             .filter(movie =>
-              `${movie.Title} ${movie.Plot}`
+              `${movie.Title} ${movie.Plot} year::${movie.Year} ${
+                movie.Actors
+              } ${movie.Director} ${movie.Genre}`
                 .toUpperCase()
                 .includes(dashboardSearch.toUpperCase())
             )
@@ -69,7 +95,7 @@ class Dashboard extends React.Component {
 
 Dashboard.propTypes = {
   handleSearchTermChange: PropTypes.func.isRequired,
-  submitMovie: PropTypes.func.isRequired,
+  addMovie: PropTypes.func.isRequired,
   dashboardSearch: PropTypes.string.isRequired,
   movies: PropTypes.arrayOf(
     PropTypes.shape({
@@ -89,5 +115,5 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   handleSearchTermChange,
-  submitMovie
+  addMovie
 })(Dashboard)

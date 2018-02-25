@@ -6,10 +6,9 @@ import { Provider } from 'react-redux'
 import 'semantic-ui-css/semantic.min.css'
 
 import store from './redux/store'
-import { addInitMovies } from './redux/actions/actions'
+import { addInitMoviesAction } from './redux/actions/actions'
 
 import DashboardPage from './components/pages/DashboardPage'
-// import DetailsRoute from './components/routes/DetailsRoute'
 import DetailsPage from './components/pages/DetailsPage'
 import FourOhFour from './components/pages/404'
 
@@ -19,7 +18,12 @@ import backgroundImage from './img/background.jpg'
 
 if (localStorage.ReactAppHW_V2) {
   const movies = JSON.parse(localStorage.getItem('ReactAppHW_V2'))
-  store.dispatch(addInitMovies(movies))
+  store.dispatch(addInitMoviesAction(movies))
+} else {
+  localStorage.setItem(
+    'ReactAppHW_V2',
+    JSON.stringify(store.getState().database.movies)
+  )
 }
 
 const App = () => (

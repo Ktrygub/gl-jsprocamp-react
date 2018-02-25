@@ -22,11 +22,7 @@ const RatingToStars = ({ rating, onClick }) => (
           defaultChecked={TOTAL_STARS - i === Number.parseFloat(rating)}
         />
         <label
-          className={
-            TOTAL_STARS - i > rating
-              ? `full`
-              : `full checked`
-          }
+          className={TOTAL_STARS - i > rating ? `full` : `full checked`}
           htmlFor={`star${TOTAL_STARS - i}`}
           title={`${TOTAL_STARS - i} stars`}
         />
@@ -39,11 +35,7 @@ const RatingToStars = ({ rating, onClick }) => (
           defaultChecked={TOTAL_STARS - i - 0.5 === Number.parseFloat(rating)}
         />
         <label
-          className={
-            TOTAL_STARS - i - 0.5 > rating
-              ? `half`
-              : `half checked`
-          }
+          className={TOTAL_STARS - i - 0.5 > rating ? `half` : `half checked`}
           htmlFor={`star${TOTAL_STARS - i}half`}
           title={`${TOTAL_STARS - i - 1}.5 stars`}
         />
