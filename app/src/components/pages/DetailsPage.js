@@ -34,6 +34,16 @@ class DetailsPage extends React.Component {
       Plot: this.state.data.newPlot
     }
     this.props.editMovie(imdbID, newMovie)
+
+    const newLocalStorage = JSON.parse(
+      localStorage.getItem('ReactAppHW_V1.0.0')
+    ).map(el => {
+      if (el.imdbID !== imdbID) {
+        return el
+      }
+      return newMovie
+    })
+    localStorage.setItem('ReactAppHW_V1.0.0', JSON.stringify(newLocalStorage))
   }
 
   onDeleteMovie = () => {
