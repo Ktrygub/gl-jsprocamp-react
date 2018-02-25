@@ -29,6 +29,7 @@ html {
   font-size: 1em;
   border: 2px solid #ffda00;
   padding: 10px 40px;
+  margin-right: 2em;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/COMdoWZ.png);
   background-size: 12px 12px;
   background-repeat: no-repeat;
@@ -38,6 +39,7 @@ html {
   transition-property: all;
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  
 }
 
 .addButton:hover {
@@ -78,7 +80,8 @@ html {
   align-items: center;
 }
 
-.dashboard > .header + div {
+.dashboard > .header + div,
+.details > .header + div {
   margin-top: 35px;
 }
 
@@ -97,23 +100,22 @@ html {
   padding: 8px 5%;
 }
 
-.details > div {
+/* .details > div {
   width: 100%;
   height: 0;
   padding-bottom: 56.25%;
   position: relative;
-}
+} */
 
-.details > div > iframe {
+/* .details > div > iframe {
   position: absolute;
   top: 0;
   left: 0;
   width: 40%;
   height: 40%;
-}
+} */
 
-.header > input,
-.card_form > div > input {
+.header > input {
   min-width: 250px;
   max-width: 350px;
   width: 33%;
@@ -122,25 +124,151 @@ html {
   border-radius: 4px;
 }
 
-.details {
+/* .details {
   color: white;
-}
+} */
 
-.details > section > img {
+/* .details > section > img {
   width: 8%;
-}
+} */
 
-.details > section > * {
+/* .details > section > * {
   margin: 0 1%;
-}
+} */
 
-.details > section {
+/* .details > section {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-bottom: 25px;
+} */
+
+.details .ui.grid {
+  margin: 65px 0 0 0;
+  padding: 0;
+  height: 660px;
+  background-color: black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
 }
 
-.details > .header + section {
-  margin-top: 35px;
+.details .ui.horizontal.segments {
+  background-color: black;
+  height: 100%;
+}
+
+.details .grid_left {
+  height: 100%;
+  width: 100%;
+}
+
+.details .grid_left img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+}
+
+.details .movie_card .title,
+.details .movie_card .plot {
+  font-family: 'Montserrat', sans-serif;
+
+  color: white;
+  background-color: black;
+  border: none;
+  overflow-x: hidden;
+  outline: none;
+  text-align: center;
+  letter-spacing: 2px;
+  resize: none;
+}
+
+.details .movie_card .title {
+  font-size: 400%;
+  width: 90%;
+  height: 1.8em;
+  margin: 25px 0px;
+}
+
+.details .movie_card .plot {
+  width: 100%;
+  height: 100%;
+  padding: 0 25px;
+  font-size: 200%;
+  text-align: left;
+}
+
+.details .description_row {
+  height: 59%;
+}
+
+.details .ui.horizontal.segments > .plot_segment,
+.details .ui.horizontal.segments > .info_segment {
+  min-width: 50%;
+}
+
+.details .movie_card .info {
+  width: 100%;
+  height: 100%;
+  padding: 0 25px;
+  font-size: 200%;
+  text-align: left;
+}
+
+.details .movie_card .info > p {
+  color: white;
+  font-size: 60%;
+}
+
+.details .movie_card .info > a {
+  color: #ffda00;
+  font-size: 60%;
+}
+
+.details .movie_card .info > span {
+  color: white;
+  font-size: 150%;
+  margin: 0 0.2em;
+}
+
+.details .movie_card .info > p > span {
+  color: #ffda00;
+  font-size: 120%;
+  margin: 0 0.2em;
+  letter-spacing: 2px;
+  font-style: italic;
+  line-height:120%
+  
+}
+
+mark {
+  border-radius: 3px;
+  color: transparent;
+  background-color: #b1d5e5;
+}
+
+.details .movie_card .info > i:before {
+  margin: 0.3em 0.2em 0 0;
+  color: #ffda00;
+  font-size: 1.5em;
+  display: inline-block;
+  content: '\f005';
+  font-family: FontAwesome;
+}
+
+.details .buttons {
+  text-align: right;
+}
+
+.details .buttons .hide {
+  opacity: 0;
+}
+
+.details .buttons .discard {
+  color: #0652DD;
+  border-color: #0652DD;
+  background: black;  
 }
