@@ -11,6 +11,7 @@ import { addInitMoviesAction } from './redux/actions/actions'
 import DashboardPage from './components/pages/DashboardPage'
 import DetailsPage from './components/pages/DetailsPage'
 import FourOhFour from './components/pages/404'
+import AddMoviePage from './components/pages/AddMoviePage'
 
 import registerServiceWorker from './registerServiceWorker'
 
@@ -28,26 +29,26 @@ if (localStorage['ReactAppHW_V1.0.0']) {
 
 const App = () => (
   <Provider store={store}>
-    <div
-      className="app"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.9)), url(${backgroundImage})`,
-        backgroundSize: 'cover'
-      }}
-    >
-      <Switch>
-        <Route exact path="/" component={DashboardPage} />
-        <Route path="/details/:id" exact component={DetailsPage} />
-        <Route default component={FourOhFour} />
-      </Switch>
-    </div>
+    <BrowserRouter basename="/gl-jsprocamp-react">
+      <div
+        className="app"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.9)), url(${backgroundImage})`,
+          backgroundSize: 'cover'
+        }}
+      >
+        <Switch>
+          <Route exact path="/" component={DashboardPage} />
+          <Route path="/details/:id" exact component={DetailsPage} />
+
+          <Route path="/add_movie" component={AddMoviePage} />
+
+          <Route default component={FourOhFour} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   </Provider>
 )
 
-ReactDOM.render(
-  <BrowserRouter basename="/gl-jsprocamp-react">
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'))
 registerServiceWorker()

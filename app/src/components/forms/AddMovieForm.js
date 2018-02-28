@@ -2,8 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Dropdown } from 'semantic-ui-react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 
 import './AddMovieForm.css'
+
+import { addMovie } from '../../redux/actions/actions'
 
 import SelectRating from '../atoms/SelectRating'
 import notAvailablePoster from '../../img/posters/not_available_poster.png'
@@ -16,12 +20,12 @@ const getByID = imdbID => axios.get(`${OMDB_URL_BY_ID}${imdbID}`)
 
 const searchByTitle = title => axios.get(`${OMDB_URL_BY_TITLE}${title}`)
 
-class TestForm extends React.Component {
+class AddMovieForm extends React.Component {
   state = {
     query: '',
     loading: false,
     options: [],
-    movie: { imdbID: '', Rating: '0' },
+    movie: { imdbID: '', Rating: '0', Trailer: '' },
     errors: {}
   }
 
@@ -62,18 +66,51 @@ class TestForm extends React.Component {
   }
 
   onCancel = () => {
-    this.props.toggleAddMovieForm()
+    this.props.history.push('/')
   }
 
   onSubmit = e => {
     e.preventDefault()
     const errors = this.validate(this.state.movie.imdbID)
     if (Object.keys(errors).length === 0) {
-      const { movie } = this.state
-      this.props.submit(movie)
+      const {
+        Title,
+        Year,
+        Runtime,
+        Genre,
+        Director,
+        Actors,
+        Plot,
+        Poster,
+        imdbID,
+        Website,
+        Rating
+      } = this.state.movie
 
-      this.props.toggleAddMovieForm()
+      const movie = {
+        Title,
+        Year,
+        Runtime,
+        Genre,
+        Director,
+        Actors,
+        Plot,
+        Poster,
+        imdbID,
+        Website,
+        Rating,
+        Trailer: ''
+      }
+
+      localStorage.setItem(
+        'ReactAppHW_V1.0.0',
+        JSON.stringify([movie, ...this.props.movies])
+      )
+
+      this.props.addMovie(movie)
+      this.props.history.push('/')
     }
+
     this.setState({ errors })
   }
 
@@ -163,9 +200,24 @@ class TestForm extends React.Component {
   }
 }
 
-TestForm.propTypes = {
-  submit: PropTypes.func.isRequired,
-  toggleAddMovieForm: PropTypes.func.isRequired
+AddMovieForm.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  addMovie: PropTypes.func.isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      Title: PropTypes.string,
+      Plot: PropTypes.string,
+      imdbID: PropTypes.string
+    })
+  ).isRequired
 }
 
-export default TestForm
+const mapStateToProps = state => ({
+  movies: state.database.movies
+})
+
+export default withRouter(
+  connect(mapStateToProps, {
+    addMovie
+  })(AddMovieForm)
+)
