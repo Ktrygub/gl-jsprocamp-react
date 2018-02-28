@@ -75,13 +75,18 @@ html {
 .dashboard > div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  
 }
 
 .dashboard > .header + div,
 .details > .header + div {
   margin-top: 35px;
+  
+}
+
+.dashboard > .header + div {
+min-height: 82.5vh;
+  align-items: left;
 }
 
 .header {
@@ -250,5 +255,9 @@ html {
   display: none;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+
+.ui.pagination.menu .item {
   outline: 0;
 }

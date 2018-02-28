@@ -11,7 +11,8 @@ const Wrapper = styled(Link)`
   width: 32%;
   border: 2px solid #ffda00;
   border-radius: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
+  margin-right: 15px;
   padding-right: 10px;
   overflow: hidden;
   text-decoration: none;
@@ -24,7 +25,7 @@ const Wrapper = styled(Link)`
 
 const Image = styled.img`
   width: 46%;
-  height: 320px;
+  height: 305px;
   float: left;
   margin-right: 10px;
   background-repeat: no-repeat;

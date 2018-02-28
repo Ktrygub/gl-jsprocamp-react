@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, Switch, BrowserRouter } from 'react-router-dom'
+import { Route, Switch, BrowserRouter, Redirect} from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import 'semantic-ui-css/semantic.min.css'
@@ -38,7 +38,8 @@ const App = () => (
         }}
       >
         <Switch>
-          <Route exact path="/" component={DashboardPage} />
+          <Route exact path="/" render={() => <Redirect to='/dashboard'/>} />
+          <Route exact path="/dashboard" component={DashboardPage} />
           <Route path="/details/:id" exact component={DetailsPage} />
 
           <Route path="/add_movie" component={AddMoviePage} />

@@ -52,7 +52,7 @@ class DetailsPage extends React.Component {
       localStorage.getItem('ReactAppHW_V1.0.0')
     ).filter(el => el.imdbID !== this.props.movie.imdbID)
     localStorage.setItem('ReactAppHW_V1.0.0', JSON.stringify(newLocalStorage))
-    this.props.history.push('/')
+    this.props.history.push('/dashboard')
   }
 
   onCancelChanges = () => {
@@ -120,7 +120,7 @@ class DetailsPage extends React.Component {
           <button
             className="addButton"
             onClick={() => {
-              this.props.history.push('/')
+              this.props.history.push('/dashboard')
             }}
           >
             BACK

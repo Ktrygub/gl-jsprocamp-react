@@ -66,7 +66,7 @@ class AddMovieForm extends React.Component {
   }
 
   onCancel = () => {
-    this.props.history.push('/')
+    this.props.history.push('/dashboard')
   }
 
   onSubmit = e => {
@@ -108,7 +108,7 @@ class AddMovieForm extends React.Component {
       )
 
       this.props.addMovie(movie)
-      this.props.history.push('/')
+      this.props.history.push('/dashboard')
     }
 
     this.setState({ errors })
