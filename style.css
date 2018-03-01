@@ -21,6 +21,9 @@ html {
   justify-content: center;
   text-align: center;
   color: #333;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9)),
+    url('./img/background.jpg');
+  background-size: cover;
 }
 
 .addButton {
@@ -75,13 +78,16 @@ html {
 .dashboard > div {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
 }
 
 .dashboard > .header + div,
 .details > .header + div {
   margin-top: 35px;
+}
+
+.dashboard > .header + div {
+  min-height: 82.5vh;
+  align-items: left;
 }
 
 .header {
@@ -99,13 +105,15 @@ html {
   padding: 8px 5%;
 }
 
-.header > input {
+.header > .ui.input {
   min-width: 250px;
   max-width: 350px;
   width: 33%;
-  padding: 4px;
-  border: 2px solid #ccc;
   border-radius: 4px;
+}
+.header > .ui.input > .ui.button {
+  background: #e0e1e2 none;
+  color: #7d160a;
 }
 
 .details .ui.grid {
@@ -250,5 +258,9 @@ html {
   display: none;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+
+.ui.pagination.menu .item {
   outline: 0;
 }
