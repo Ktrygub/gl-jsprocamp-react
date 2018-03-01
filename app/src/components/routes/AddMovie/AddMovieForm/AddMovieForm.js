@@ -7,11 +7,11 @@ import { withRouter } from 'react-router-dom'
 
 import './AddMovieForm.css'
 
-import { addMovie } from '../../redux/actions/actions'
+import { addMovie } from '../../../../redux/actions/actions'
 
-import SelectRating from '../atoms/SelectRating'
-import notAvailablePoster from '../../img/posters/not_available_poster.png'
-import defaultPoster from '../../img/posters/film_strip.png'
+import SelectRating from '../../../common/RatingToStars/SelectRating'
+import notAvailablePoster from '../../../../img/posters/not_available_poster.png'
+import defaultPoster from '../../../../img/posters/film_strip.png'
 
 const OMDB_URL_BY_ID = 'https://www.omdbapi.com/?apikey=ad3a71c2&i='
 const OMDB_URL_BY_TITLE = 'https://www.omdbapi.com/?apikey=ad3a71c2&s='

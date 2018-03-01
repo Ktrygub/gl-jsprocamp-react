@@ -17,6 +17,6 @@
 
 ## known bugs / todos :
 - [ ] add some notification when user trying to add already existing movie ( current behavior: nothing happens, no duplicate movie added with no notification)
-- [ ] broken 'stars rating' CSS representation when manually changing movie rating inside 'Add Movie' form or 'Movie Details' page (when we change rating and press 'discard' button). Rating logic is fine but CSS representation is broken.
+- [x] broken 'stars rating' CSS representation when manually changing movie rating inside 'Add Movie' form or 'Movie Details' page (when we change rating and press 'discard' button). Rating logic is fine but CSS representation is broken.
 - [ ] group / reorganize movies order (drag'n'drop, groups structure etc.)
 - [x] add confirmation dialog after user pressed 'delete movie' button

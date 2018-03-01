@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AddMovieForm from '../forms/AddMovieForm'
+import AddMovieForm from './AddMovieForm/AddMovieForm'
 
 const AddMoviePage = () => <AddMovieForm />
 

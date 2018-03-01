@@ -1,4 +1,5 @@
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM'
+export const SET_FILTER = 'SET_FILTER'
 export const ADD_MOVIE = 'ADD_MOVIE'
 export const EDIT_MOVIE = 'EDIT_MOVIE'
 export const DELETE_MOVIE = 'DELETE_MOVIE'

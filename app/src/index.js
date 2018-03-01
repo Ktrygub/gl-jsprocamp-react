@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, Switch, BrowserRouter, Redirect} from 'react-router-dom'
+import { Route, Switch, BrowserRouter, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import 'semantic-ui-css/semantic.min.css'
@@ -8,14 +8,13 @@ import 'semantic-ui-css/semantic.min.css'
 import store from './redux/store'
 import { addInitMoviesAction } from './redux/actions/actions'
 
-import DashboardPage from './components/pages/DashboardPage'
-import DetailsPage from './components/pages/DetailsPage'
-import FourOhFour from './components/pages/404'
-import AddMoviePage from './components/pages/AddMoviePage'
+import DashboardPage from './components/routes/Dashboard/DashboardPage'
+import DetailsPage from './components/routes/Details/DetailsPage'
+import FourOhFour from './components/routes/404/404'
+import AddMoviePage from './components/routes/AddMovie/AddMoviePage'
+import AllMoviesTestPage from './components/routes/AllMoviesTest/AllMoviesTestPage'
 
 import registerServiceWorker from './registerServiceWorker'
-
-import backgroundImage from './img/background.jpg'
 
 if (localStorage['ReactAppHW_V1.0.0']) {
   const movies = JSON.parse(localStorage.getItem('ReactAppHW_V1.0.0'))
@@ -30,20 +29,16 @@ if (localStorage['ReactAppHW_V1.0.0']) {
 const App = () => (
   <Provider store={store}>
     <BrowserRouter basename="/gl-jsprocamp-react">
-      <div
-        className="app"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.9)), url(${backgroundImage})`,
-          backgroundSize: 'cover'
-        }}
-      >
+      <div className="app">
         <Switch>
-          <Route exact path="/" render={() => <Redirect to='/dashboard'/>} />
-          <Route exact path="/dashboard" component={DashboardPage} />
-          <Route path="/details/:id" exact component={DetailsPage} />
-
+          <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
+          <Route path="/dashboard" component={DashboardPage} />
+          <Route path="/details/:id" component={DetailsPage} />
           <Route path="/add_movie" component={AddMoviePage} />
 
+          <Route path="/all_movies" component={AllMoviesTestPage} />
+
+          <Route path="/404" component={FourOhFour} />
           <Route default component={FourOhFour} />
         </Switch>
       </div>

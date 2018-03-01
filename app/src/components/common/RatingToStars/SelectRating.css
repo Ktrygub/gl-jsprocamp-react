@@ -1,4 +1,3 @@
-.select_rating > .rating_to_star > input:checked ~ label,
 .select_rating > .rating_to_star:not(:checked) > label:hover,
 .select_rating > .rating_to_star:not(:checked) > label:hover ~ label {
   color: #ffd700;

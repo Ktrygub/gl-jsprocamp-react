@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import RatingToStars from './atoms/RatingToStars'
-import notAvailablePoster from '../img/posters/not_available_poster.png'
-import defaultPoster from '../img/posters/film_strip.png'
+import RatingToStars from '../RatingToStars/RatingToStars'
+import notAvailablePoster from '../../../img/posters/not_available_poster.png'
+import defaultPoster from '../../../img/posters/film_strip.png'
 
 const Wrapper = styled(Link)`
   width: 32%;
@@ -34,8 +34,10 @@ const Image = styled.img`
 
 const MovieCard = props => {
   let poster = props.Poster
-  if (props.Poster === 'N/A') poster = notAvailablePoster
-  if (!props.Poster) poster = defaultPoster
+  
+  if (!poster) poster = defaultPoster
+  if (poster === 'N/A') poster = notAvailablePoster
+  
   return (
     <Wrapper to={`/details/${props.imdbID}`} className="movie-card">
       <Image src={poster} alt={`${props.Title} movie poster`} />

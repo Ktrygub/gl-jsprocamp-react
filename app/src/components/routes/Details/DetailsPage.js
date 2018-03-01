@@ -4,27 +4,29 @@ import PropTypes from 'prop-types'
 import { Redirect, Link } from 'react-router-dom'
 import { Grid, Segment, Modal, Button } from 'semantic-ui-react'
 
-import SelectRating from '../atoms/SelectRating'
+import SelectRating from '../../common/RatingToStars/SelectRating'
 import {
   handleSearchTermChange,
   editMovie,
   deleteMovie
-} from '../../redux/actions/actions'
+} from '../../../redux/actions/actions'
 
-import notAvailablePoster from '../../img/posters/not_available_poster.png'
-import defaultPoster from '../../img/posters/film_strip.png'
+import notAvailablePoster from '../../../img/posters/not_available_poster.png'
+import defaultPoster from '../../../img/posters/film_strip.png'
 
 class DetailsPage extends React.Component {
-  state = {
-    data: {
-      newRating: this.props.movie.Rating,
-      newPlot: this.props.movie.Plot,
-      Genres: this.props.movie.Genre.split(', '),
-      Actors: this.props.movie.Actors.split(', '),
-      Directors: this.props.movie.Director.split(', ')
-    },
-    modalOpen: false
-  }
+  state = this.props.movie
+    ? {
+        data: {
+          newRating: this.props.movie.Rating,
+          newPlot: this.props.movie.Plot,
+          Genres: this.props.movie.Genre.split(', '),
+          Actors: this.props.movie.Actors.split(', '),
+          Directors: this.props.movie.Director.split(', ')
+        },
+        modalOpen: false
+      }
+    : undefined
 
   onSubmitChanges = () => {
     const { imdbID } = this.props.movie
@@ -105,7 +107,7 @@ class DetailsPage extends React.Component {
 
   render() {
     if (!this.props.movie) {
-      return <Redirect to="/" />
+      return <Redirect to="/404" />
     }
 
     const { Title, Poster, imdbID } = this.props.movie

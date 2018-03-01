@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import MovieCard from '../MovieCard'
+import MovieCard from '../../common/MovieCard/MovieCard'
 
 const DashboardMovieList = ({ movies }) => (
   <div>{movies.map(movie => <MovieCard key={movie.imdbID} {...movie} />)}</div>

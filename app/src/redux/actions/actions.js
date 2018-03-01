@@ -1,5 +1,6 @@
 import {
   SET_SEARCH_TERM,
+  SET_FILTER,
   ADD_MOVIE,
   EDIT_MOVIE,
   DELETE_MOVIE,
@@ -10,6 +11,11 @@ import {
 export const setSearchTermAction = searchTerm => ({
   type: SET_SEARCH_TERM,
   searchTerm
+})
+
+export const setFilterAction = filter => ({
+  type: SET_FILTER,
+  filter
 })
 
 export const addMovieAction = movie => ({ type: ADD_MOVIE, movie })
@@ -27,6 +33,9 @@ export const addInitMoviesAction = movies => ({ type: ADD_INIT_MOVIES, movies })
 // dispatchers
 export const handleSearchTermChange = value => dispatch =>
   dispatch(setSearchTermAction(value))
+
+export const setFilter = value => dispatch =>
+  dispatch(setFilterAction(value))
 
 export const addMovie = movie => dispatch => dispatch(addMovieAction(movie))
 
