@@ -3,23 +3,6 @@ const persistedStateDatabase = {
     movies: [
       {
         Actors:
-          'Matthew McConaughey, Colin Farrell, Woody Harrelson, Rachel McAdams',
-        Director: 'N/A',
-        Genre: 'Crime, Drama, Mystery',
-        Plot:
-          'Seasonal anthology series in which police investigations unearth the personal and professional secrets of those involved, both within and outside the law.',
-        Poster:
-          'https://images-na.ssl-images-amazon.com/images/M/MV5BMmRlYmE0Y2UtNDk2Yi00NzczLWEwZTEtZmE2OTcyYzcxYmU5XkEyXkFqcGdeQXVyNTMxMjgxMzA@._V1_SX300.jpg',
-        Rating: '9',
-        Runtime: '55 min',
-        Title: 'True Detective',
-        Trailer: '',
-        Year: '2014–',
-        imdbID: 'tt2356777',
-        Website: 'N/A'
-      },
-      {
-        Actors:
           'Amy Adams, Jake Gyllenhaal, Michael Shannon, Aaron Taylor-Johnson',
         Director: 'Tom Ford',
         Genre: 'Crime, Drama, Romance',
@@ -34,39 +17,6 @@ const persistedStateDatabase = {
         Website: 'N/A',
         Year: '2016',
         imdbID: 'tt4550098'
-      },
-      {
-        Actors:
-          'Evan Rachel Wood, Thandie Newton, James Marsden, Jeffrey Wright',
-        Director: 'N/A',
-        Genre: 'Drama, Mystery, Sci-Fi',
-        Plot:
-          'Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite can be indulged without consequence.',
-        Poster:
-          'https://images-na.ssl-images-amazon.com/images/M/MV5BMTEyODk5NTc2MjNeQTJeQWpwZ15BbWU4MDQ5NTgwOTkx._V1_SX300.jpg',
-        Rating: '9',
-        Runtime: '62 min',
-        Title: 'Westworld',
-        Trailer: '',
-        Year: '2016–',
-        imdbID: 'tt0475784',
-        Website: 'N/A'
-      },
-      {
-        Actors: 'Rami Malek, Carly Chaikin, Portia Doubleday, Christian Slater',
-        Director: 'N/A',
-        Genre: 'Crime, Drama, Thriller',
-        Plot:
-          'Follows Elliot, a young programmer working as a cyber-security engineer by day, and a vigilante hacker by night.',
-        Poster:
-          'https://images-na.ssl-images-amazon.com/images/M/MV5BMTYzMDE2MzI4MF5BMl5BanBnXkFtZTgwNTkxODgxOTE@._V1_SX300.jpg',
-        Rating: '8.5',
-        Runtime: '49 min',
-        Title: 'Mr. Robot',
-        Trailer: '',
-        Year: '2015–',
-        imdbID: 'tt4158110',
-        Website: 'N/A'
       },
       {
         Actors: 'Ellen Burstyn, Jared Leto, Jennifer Connelly, Marlon Wayans',
@@ -425,6 +375,23 @@ const persistedStateDatabase = {
       },
       {
         Actors:
+          'Matthew McConaughey, Colin Farrell, Woody Harrelson, Rachel McAdams',
+        Director: 'N/A',
+        Genre: 'Crime, Drama, Mystery',
+        Plot:
+          'Seasonal anthology series in which police investigations unearth the personal and professional secrets of those involved, both within and outside the law.',
+        Poster:
+          'https://images-na.ssl-images-amazon.com/images/M/MV5BMmRlYmE0Y2UtNDk2Yi00NzczLWEwZTEtZmE2OTcyYzcxYmU5XkEyXkFqcGdeQXVyNTMxMjgxMzA@._V1_SX300.jpg',
+        Rating: '9',
+        Runtime: '55 min',
+        Title: 'True Detective',
+        Trailer: '',
+        Year: '2014',
+        imdbID: 'tt2356777',
+        Website: 'N/A'
+      },
+      {
+        Actors:
           'Joey Cramer, Paul Reubens, Cliff De Young, Veronica Cartwright',
         Director: 'Randal Kleiser',
         Genre: 'Adventure, Family, Sci-Fi',
@@ -700,6 +667,23 @@ const persistedStateDatabase = {
         Website: 'http://www.InterstellarMovie.com/'
       },
       {
+        Actors:
+          'Evan Rachel Wood, Thandie Newton, James Marsden, Jeffrey Wright',
+        Director: 'N/A',
+        Genre: 'Drama, Mystery, Sci-Fi',
+        Plot:
+          'Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite can be indulged without consequence.',
+        Poster:
+          'https://images-na.ssl-images-amazon.com/images/M/MV5BMTEyODk5NTc2MjNeQTJeQWpwZ15BbWU4MDQ5NTgwOTkx._V1_SX300.jpg',
+        Rating: '9',
+        Runtime: '62 min',
+        Title: 'Westworld',
+        Trailer: '',
+        Year: '2016',
+        imdbID: 'tt0475784',
+        Website: 'N/A'
+      },
+      {
         Title: 'The Green Mile',
         Rating: '8',
         Plot:
@@ -796,7 +780,6 @@ const persistedStateDatabase = {
         Year: '1984',
         imdbID: 'tt0088247'
       },
-
       {
         Title: 'Terminator 2: Judgment Day',
         Rating: '8.5',
@@ -860,6 +843,22 @@ const persistedStateDatabase = {
         Genre: 'Crime, Drama',
         Director: 'Quentin Tarantino',
         Actors: 'Tim Roth, Amanda Plummer, Laura Lovelace, John Travolta',
+        Website: 'N/A'
+      },
+      {
+        Actors: 'Rami Malek, Carly Chaikin, Portia Doubleday, Christian Slater',
+        Director: 'N/A',
+        Genre: 'Crime, Drama, Thriller',
+        Plot:
+          'Follows Elliot, a young programmer working as a cyber-security engineer by day, and a vigilante hacker by night.',
+        Poster:
+          'https://images-na.ssl-images-amazon.com/images/M/MV5BMTYzMDE2MzI4MF5BMl5BanBnXkFtZTgwNTkxODgxOTE@._V1_SX300.jpg',
+        Rating: '8.5',
+        Runtime: '49 min',
+        Title: 'Mr. Robot',
+        Trailer: '',
+        Year: '2015',
+        imdbID: 'tt4158110',
         Website: 'N/A'
       },
       {

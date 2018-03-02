@@ -102,12 +102,17 @@ class AddMovieForm extends React.Component {
         Trailer: ''
       }
 
-      localStorage.setItem(
-        'ReactAppHW_V1.0.0',
-        JSON.stringify([movie, ...this.props.movies])
-      )
+      if (this.props.movies.some(el =>movie.imdbID === el.imdbID)) {
+        // 'trying to add already existing movie' logic here
+        // console.log('already existing movie')
+      } else {
+        localStorage.setItem(
+          'ReactAppHW_V1.0.0',
+          JSON.stringify([movie, ...this.props.movies])
+        )
+        this.props.addMovie(movie)
+      }
 
-      this.props.addMovie(movie)
       this.props.history.push('/dashboard')
     }
 

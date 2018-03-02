@@ -16,12 +16,12 @@ import AllMoviesTestPage from './components/routes/AllMoviesTest/AllMoviesTestPa
 
 import registerServiceWorker from './registerServiceWorker'
 
-if (localStorage['ReactAppHW_V1.0.0']) {
-  const movies = JSON.parse(localStorage.getItem('ReactAppHW_V1.0.0'))
+if (localStorage['ReactAppHW_V1.0.1']) {
+  const movies = JSON.parse(localStorage.getItem('ReactAppHW_V1.0.1'))
   store.dispatch(addInitMoviesAction(movies))
 } else {
   localStorage.setItem(
-    'ReactAppHW_V1.0.0',
+    'ReactAppHW_V1.0.1',
     JSON.stringify(store.getState().database.movies)
   )
 }

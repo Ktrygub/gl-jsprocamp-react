@@ -38,22 +38,22 @@ class DetailsPage extends React.Component {
     this.props.editMovie(imdbID, newMovie)
 
     const newLocalStorage = JSON.parse(
-      localStorage.getItem('ReactAppHW_V1.0.0')
+      localStorage.getItem('ReactAppHW_V1.0.1')
     ).map(el => {
       if (el.imdbID !== imdbID) {
         return el
       }
       return newMovie
     })
-    localStorage.setItem('ReactAppHW_V1.0.0', JSON.stringify(newLocalStorage))
+    localStorage.setItem('ReactAppHW_V1.0.1', JSON.stringify(newLocalStorage))
   }
 
   onDeleteMovie = () => {
     this.props.deleteMovie(this.props.movie.imdbID)
     const newLocalStorage = JSON.parse(
-      localStorage.getItem('ReactAppHW_V1.0.0')
+      localStorage.getItem('ReactAppHW_V1.0.1')
     ).filter(el => el.imdbID !== this.props.movie.imdbID)
-    localStorage.setItem('ReactAppHW_V1.0.0', JSON.stringify(newLocalStorage))
+    localStorage.setItem('ReactAppHW_V1.0.1', JSON.stringify(newLocalStorage))
     this.props.history.push('/dashboard')
   }
 
