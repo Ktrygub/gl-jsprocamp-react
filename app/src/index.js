@@ -31,8 +31,12 @@ const App = () => (
     <BrowserRouter basename="/gl-jsprocamp-react">
       <div className="app">
         <Switch>
-          <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
-          <Route path="/dashboard" component={DashboardPage} />
+          <Route
+            exact
+            path="/"
+            render={() => <Redirect to="/dashboard/page-1" />}
+          />
+          <Route path="/dashboard/:page" component={DashboardPage} />
           <Route path="/details/:id" component={DetailsPage} />
           <Route path="/add_movie" component={AddMoviePage} />
 

@@ -4,12 +4,13 @@ import { Dropdown } from 'semantic-ui-react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import styled from 'styled-components'
 
 import './AddMovieForm.css'
 
 import { addMovie } from '../../../../redux/actions/actions'
 
-import SelectRating from '../../../common/RatingToStars/SelectRating'
+import RatingToStars from '../../../common/RatingToStars/RatingToStars'
 import notAvailablePoster from '../../../../img/posters/not_available_poster.png'
 import defaultPoster from '../../../../img/posters/film_strip.png'
 
@@ -19,6 +20,20 @@ const OMDB_URL_BY_TITLE = 'https://www.omdbapi.com/?apikey=ad3a71c2&s='
 const getByID = imdbID => axios.get(`${OMDB_URL_BY_ID}${imdbID}`)
 
 const searchByTitle = title => axios.get(`${OMDB_URL_BY_TITLE}${title}`)
+
+const DescriptionTextarea = styled.textarea`
+  padding: 10px 5px;
+  color: white;
+  background-color: black;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 100%;
+  line-height: 30px;
+  letter-spacing: 1px;
+  resize: none;
+`
 
 class AddMovieForm extends React.Component {
   state = {
@@ -59,14 +74,8 @@ class AddMovieForm extends React.Component {
     })
   }
 
-  onSearchChange = (e, data) => {
-    clearTimeout(this.timer)
-    this.setState({ query: data.searchQuery })
-    this.timer = setTimeout(this.fetchOptions, 1000)
-  }
-
   onCancel = () => {
-    this.props.history.push('/dashboard')
+    this.props.history.goBack()
   }
 
   onSubmit = e => {
@@ -102,27 +111,27 @@ class AddMovieForm extends React.Component {
         Trailer: ''
       }
 
-      if (this.props.movies.some(el =>movie.imdbID === el.imdbID)) {
+      if (this.props.movies.some(el => movie.imdbID === el.imdbID)) {
         // 'trying to add already existing movie' logic here
         // console.log('already existing movie')
       } else {
         localStorage.setItem(
-          'ReactAppHW_V1.0.0',
+          'ReactAppHW_V1.0.1',
           JSON.stringify([movie, ...this.props.movies])
         )
         this.props.addMovie(movie)
       }
 
-      this.props.history.push('/dashboard')
+      this.props.history.push('/dashboard/page-1')
     }
 
     this.setState({ errors })
   }
 
-  validate = id => {
-    const errors = {}
-    if (!id) errors.title = `Title can't be blank`
-    return errors
+  onSearchChange = (e, data) => {
+    clearTimeout(this.timer)
+    this.setState({ query: data.searchQuery })
+    this.timer = setTimeout(this.fetchOptions, 1000)
   }
 
   fetchOptions = () => {
@@ -145,6 +154,12 @@ class AddMovieForm extends React.Component {
       .catch(() => {
         this.setState({ loading: false })
       })
+  }
+
+  validate = id => {
+    const errors = {}
+    if (!id) errors.title = `Title can't be blank`
+    return errors
   }
 
   render() {
@@ -173,17 +188,17 @@ class AddMovieForm extends React.Component {
             </div>
 
             <div className="card_right__details">
-              <SelectRating
-                rating={this.state.movie.Rating}
+              <RatingToStars
+                rating={Number.parseFloat(this.state.movie.Rating)}
                 onClick={this.onRatingClick}
+                hoverable
               />
 
-              <textarea
+              <DescriptionTextarea
                 rows={6}
                 cols={52}
                 placeholder="Movie Description"
                 onChange={this.onDescrChange}
-                className="movie_description"
                 value={this.state.movie.Plot}
               />
             </div>
@@ -206,7 +221,10 @@ class AddMovieForm extends React.Component {
 }
 
 AddMovieForm.propTypes = {
-  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  history: PropTypes.shape({
+    goBack: PropTypes.func.isRequired,
+    push: PropTypes.func.isRequired
+  }).isRequired,
   addMovie: PropTypes.func.isRequired,
   movies: PropTypes.arrayOf(
     PropTypes.shape({

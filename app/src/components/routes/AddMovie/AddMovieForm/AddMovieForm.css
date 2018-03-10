@@ -4,6 +4,7 @@ body {
   background: #e2e2e2;
   height: 100vh;
 }
+
 body .card {
   width: 800px;
   height: 400px;
@@ -86,20 +87,6 @@ body .card_right {
 
 .ui.dropdown:not(.button) > .default.text {
   color: white;
-}
-
-.movie_description {
-  padding: 10px 5px;
-  color: white;
-  background-color: black;
-  outline: none;
-  border: none;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  font-size: 100%;
-  line-height: 30px;
-  letter-spacing: 1px;
-  resize: none;
 }
 
 .controls {

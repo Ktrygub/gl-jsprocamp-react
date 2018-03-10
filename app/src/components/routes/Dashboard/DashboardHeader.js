@@ -2,6 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { Input, Button, Checkbox } from 'semantic-ui-react'
+import styled from 'styled-components'
+
+const SortPanel = styled.div`
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 18%;
+`
 
 const DashboardHeader = ({
   dashboardSearch,
@@ -23,14 +31,7 @@ const DashboardHeader = ({
       onChange={onSearchTermChange}
     />
 
-    <div
-      style={{
-        color: 'white',
-        display: 'flex',
-        justifyContent: 'space-between',
-        width: '18%'
-      }}
-    >
+    <SortPanel>
       Sort:
       <Checkbox
         radio
@@ -56,7 +57,7 @@ const DashboardHeader = ({
         onChange={onFilterChange}
       />
       Year
-    </div>
+    </SortPanel>
 
     <button className="addButton" onClick={() => history.push('/add_movie')}>
       ADD MOVIE

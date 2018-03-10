@@ -18,8 +18,10 @@ const Wrapper = styled(Link)`
   text-decoration: none;
   color: black;
   background-color: rgba(220, 220, 220, 0.7);
+  transition: all 0.2s ease-in-out;
   &:hover {
     color: black;
+    transform: scale(1.04);
   }
 `
 
@@ -34,12 +36,12 @@ const Image = styled.img`
 
 const MovieCard = props => {
   let poster = props.Poster
-  
+
   if (!poster) poster = defaultPoster
   if (poster === 'N/A') poster = notAvailablePoster
-  
+
   return (
-    <Wrapper to={`/details/${props.imdbID}`} className="movie-card">
+    <Wrapper to={`/details/${props.imdbID}`}>
       <Image src={poster} alt={`${props.Title} movie poster`} />
 
       <div>
@@ -47,7 +49,7 @@ const MovieCard = props => {
         <div
           style={{ fontSize: '70%', padding: '2px', display: 'inline-table' }}
         >
-          <RatingToStars rating={props.Rating} />
+          <RatingToStars rating={Number.parseFloat(props.Rating)} />
         </div>
 
         <p>{props.Plot}</p>

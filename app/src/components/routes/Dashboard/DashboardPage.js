@@ -38,12 +38,8 @@ const sortMoviesByProperty = (propertyName, movies) => {
 }
 
 class Dashboard extends React.Component {
-  state = {
-    activePage: 1
-  }
-
   onSearchTermChange = e => {
-    this.setState({ activePage: 1 })
+    this.props.history.push('/dashboard/page-1')
     this.props.handleSearchTermChange(e.target.value)
   }
 
@@ -51,12 +47,18 @@ class Dashboard extends React.Component {
     this.props.setFilter(value)
   }
 
-  handlePaginationChange = (e, { activePage }) => this.setState({ activePage })
+  handlePaginationChange = (e, { activePage }) => {
+    const currentPage = Number(
+      this.props.match.params.page.replace('page-', '')
+    )
+    if (currentPage !== activePage)
+      this.props.history.push(`/dashboard/page-${activePage}`)
+  }
 
   render() {
     const { movies } = this.props
     const { searchTerm, filter } = this.props.dashboard
-    const { activePage } = this.state
+    const activePage = Number(this.props.match.params.page.replace('page-', ''))
 
     const sortedMovies = sortMoviesByProperty(filter, movies)
 
@@ -80,7 +82,10 @@ class Dashboard extends React.Component {
           dashboardSearch={searchTerm}
           filter={filter}
           onSearchTermChange={this.onSearchTermChange}
-          onSearchClear={() => this.props.handleSearchTermChange('')}
+          onSearchClear={() => {
+            this.props.handleSearchTermChange('')
+            this.props.history.push('/dashboard/page-1')
+          }}
           onFilterChange={this.onFilterChange}
         />
 
@@ -97,6 +102,12 @@ class Dashboard extends React.Component {
 }
 
 Dashboard.propTypes = {
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      page: PropTypes.string.isRequired
+    }).isRequired
+  }).isRequired,
   handleSearchTermChange: PropTypes.func.isRequired,
   setFilter: PropTypes.func.isRequired,
   dashboard: PropTypes.shape({

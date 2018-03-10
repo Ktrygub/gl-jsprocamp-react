@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Redirect, Link } from 'react-router-dom'
 import { Grid, Segment, Modal, Button } from 'semantic-ui-react'
 
-import SelectRating from '../../common/RatingToStars/SelectRating'
+import RatingToStars from '../../common/RatingToStars/RatingToStars'
 import {
   handleSearchTermChange,
   editMovie,
@@ -54,7 +54,7 @@ class DetailsPage extends React.Component {
       localStorage.getItem('ReactAppHW_V1.0.1')
     ).filter(el => el.imdbID !== this.props.movie.imdbID)
     localStorage.setItem('ReactAppHW_V1.0.1', JSON.stringify(newLocalStorage))
-    this.props.history.push('/dashboard')
+    this.props.history.goBack()
   }
 
   onCancelChanges = () => {
@@ -122,7 +122,7 @@ class DetailsPage extends React.Component {
           <button
             className="addButton"
             onClick={() => {
-              this.props.history.push('/dashboard')
+              this.props.history.goBack()
             }}
           >
             BACK
@@ -149,9 +149,10 @@ class DetailsPage extends React.Component {
 
               <Grid.Row>
                 <Grid.Column width={11}>
-                  <SelectRating
-                    rating={this.state.data.newRating}
+                  <RatingToStars
+                    rating={Number.parseFloat(this.state.data.newRating)}
                     onClick={this.onRatingClick}
+                    hoverable
                   />
                 </Grid.Column>
               </Grid.Row>
@@ -270,7 +271,7 @@ DetailsPage.defaultProps = {
 }
 
 DetailsPage.propTypes = {
-  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  history: PropTypes.shape({ goBack: PropTypes.func.isRequired }).isRequired,
   handleSearchTermChange: PropTypes.func.isRequired,
   editMovie: PropTypes.func.isRequired,
   deleteMovie: PropTypes.func.isRequired,
@@ -284,8 +285,7 @@ DetailsPage.propTypes = {
     Genre: PropTypes.string.isRequired,
     Year: PropTypes.string.isRequired,
     Director: PropTypes.string.isRequired,
-    Actors: PropTypes.string.isRequired,
-    Website: PropTypes.string.isRequired
+    Actors: PropTypes.string.isRequired
   })
 }
 
