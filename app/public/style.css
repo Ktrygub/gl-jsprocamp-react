@@ -237,6 +237,9 @@ html {
 .details .buttons .hide {
   opacity: 0;
 }
+.details .buttons .hide:hover {
+  display: none;
+}
 
 .details .buttons .discard {
   color: #0652dd;

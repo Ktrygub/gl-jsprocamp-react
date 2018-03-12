@@ -22,6 +22,11 @@ class Dashboard extends React.Component {
     this.props.handleSearchTermChange(e.target.value)
   }
 
+  onSearchClear = () => {
+    this.props.handleSearchTermChange('')
+    this.props.history.push('/dashboard/page-1')
+  }
+
   onFilterChange = (e, { value }) => {
     this.props.setFilter(value)
   }
@@ -35,8 +40,7 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const { totalPages } = this.props
-    const { searchTerm, filter } = this.props
+    const { searchTerm, filter, totalPages } = this.props
     const activePage = Number(this.props.match.params.page.replace('page-', ''))
 
     return (
@@ -45,10 +49,7 @@ class Dashboard extends React.Component {
           dashboardSearch={searchTerm}
           filter={filter}
           onSearchTermChange={this.onSearchTermChange}
-          onSearchClear={() => {
-            this.props.handleSearchTermChange('')
-            this.props.history.push('/dashboard/page-1')
-          }}
+          onSearchClear={this.onSearchClear}
           onFilterChange={this.onFilterChange}
         />
 
