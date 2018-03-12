@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import MovieCard from '../../common/MovieCard/MovieCard'
 
-const DashboardMovieList = ({ movies }) => (
+const MovieList = ({ movies }) => (
   <div>{movies.map(movie => <MovieCard key={movie.imdbID} {...movie} />)}</div>
 )
-DashboardMovieList.propTypes = {
+MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       Title: PropTypes.string,
@@ -15,4 +15,4 @@ DashboardMovieList.propTypes = {
     })
   ).isRequired
 }
-export default DashboardMovieList
+export default MovieList

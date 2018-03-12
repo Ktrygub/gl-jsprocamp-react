@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import DashboardMovieList from './DashboardMovieList'
+import VisibleMovieList from './VisibleMovieList'
 import DashboardHeader from './DashboardHeader'
 import DashboardPagination from './DashboardPagination'
 
@@ -10,32 +10,11 @@ import {
   handleSearchTermChange,
   setFilter
 } from '../../../redux/actions/actions'
-
-/* eslint-disable react/prefer-stateless-function */
-
-const sortMoviesByProperty = (propertyName, movies) => {
-  const arrCopy = Array.from(movies)
-  switch (propertyName) {
-    case 'Year':
-    case 'Rating':
-      return arrCopy.sort((a, b) => {
-        const x = parseFloat(a[propertyName], 10)
-        const y = parseFloat(b[propertyName], 10)
-        if (x < y) return 1
-        if (x > y) return -1
-        return 0
-      })
-
-    case 'Title':
-      return arrCopy.sort((a, b) => {
-        if (a[propertyName] < b[propertyName]) return -1
-        if (a[propertyName] > b[propertyName]) return 1
-        return 0
-      })
-    default:
-      return movies
-  }
-}
+import {
+  getSearchTerm,
+  getFilter,
+  getTotalPages
+} from '../../../redux/selectors/selectors'
 
 class Dashboard extends React.Component {
   onSearchTermChange = e => {
@@ -56,25 +35,9 @@ class Dashboard extends React.Component {
   }
 
   render() {
-    const { movies } = this.props
-    const { searchTerm, filter } = this.props.dashboard
+    const { totalPages } = this.props
+    const { searchTerm, filter } = this.props
     const activePage = Number(this.props.match.params.page.replace('page-', ''))
-
-    const sortedMovies = sortMoviesByProperty(filter, movies)
-
-    const selectedMovies = sortedMovies.filter(movie =>
-      `${movie.Title} ${movie.Plot} year::${movie.Year} ${movie.Actors} ${
-        movie.Director
-      } ${movie.Genre}`
-        .toUpperCase()
-        .includes(searchTerm.toUpperCase())
-    )
-
-    const activePageOfMovies = selectedMovies.filter(
-      (movie, idx) => idx < activePage * 6 && idx >= (activePage - 1) * 6
-    )
-
-    const totalPages = parseInt((selectedMovies.length - 1) / 6, 10) + 1
 
     return (
       <div className="dashboard">
@@ -89,7 +52,7 @@ class Dashboard extends React.Component {
           onFilterChange={this.onFilterChange}
         />
 
-        <DashboardMovieList movies={activePageOfMovies} />
+        <VisibleMovieList />
 
         <DashboardPagination
           activePage={activePage}
@@ -109,23 +72,16 @@ Dashboard.propTypes = {
     }).isRequired
   }).isRequired,
   handleSearchTermChange: PropTypes.func.isRequired,
+  totalPages: PropTypes.number.isRequired,
   setFilter: PropTypes.func.isRequired,
-  dashboard: PropTypes.shape({
-    searchTerm: PropTypes.string.isRequired,
-    filter: PropTypes.string.isRequired
-  }).isRequired,
-  movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      Title: PropTypes.string,
-      Plot: PropTypes.string,
-      imdbID: PropTypes.string
-    })
-  ).isRequired
+  searchTerm: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired
 }
 
 const mapStateToProps = state => ({
-  movies: state.database.movies,
-  dashboard: state.dashboard
+  searchTerm: getSearchTerm(state),
+  filter: getFilter(state),
+  totalPages: getTotalPages(state)
 })
 
 export default connect(mapStateToProps, {

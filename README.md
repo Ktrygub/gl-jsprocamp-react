@@ -15,9 +15,10 @@
  All movies are stored in browser local storage.
 
 
-## known bugs / todos :
-- [ ] add some notification when user trying to add already existing movie ( current behavior: nothing happens, no duplicate movie added with no notification)
-- [x] broken 'stars rating' CSS representation when manually changing movie rating inside 'Add Movie' form or 'Movie Details' page (when we change rating and press 'discard' button). Rating logic is fine but CSS representation is broken.
+## bugs / todos :
 - [ ] group / reorganize movies order (drag'n'drop, groups structure etc.)
+- [ ] add some notification when user trying to add already existing movie ( current behavior: nothing happens, no duplicate movie added with no notification)
+- [x] use Reselect for 'sort' and 'search' features
+- [x] broken 'stars rating' CSS representation when manually changing movie rating inside 'Add Movie' form or 'Movie Details' page (when we change rating and press 'discard' button). Rating logic is fine but CSS representation is broken.
 - [x] add confirmation dialog after user pressed 'delete movie' button
-- [ ] change pagination process. Now this process controlled by internal state activePage, change it to be controlled by url params: f.e. /dashboard/page1 -> /dashboard/page2 etc. (also refactor search in same manner, f.e. /dashboard/comedy/page1, /dashboard/y2012/page3)
+- [x] change pagination process. Now this process controlled by internal state activePage, change it to be controlled by url params: f.e. /dashboard/page1 -> /dashboard/page2 etc. (also refactor search in same manner, f.e. /dashboard/comedy/page1, /dashboard/y2012/page3)

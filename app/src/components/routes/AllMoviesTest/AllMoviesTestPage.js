@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import DashboardMovieList from '../Dashboard/DashboardMovieList'
+import MovieList from '../Dashboard/MovieList'
+import {
+  getAllMovies
+} from '../../../redux/selectors/selectors'
 
 /* eslint-disable react/prefer-stateless-function */
 
@@ -12,11 +15,12 @@ class AllMoviesTestPage extends React.Component {
 
     return (
       <div className="dashboard">
-        <DashboardMovieList movies={movies} />
+        <MovieList movies={movies} />
       </div>
     )
   }
 }
+/* eslint-enable react/prefer-stateless-function */
 AllMoviesTestPage.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
@@ -28,7 +32,7 @@ AllMoviesTestPage.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  movies: state.database.movies
+  movies: getAllMovies(state)
 })
 
 export default connect(mapStateToProps, null)(AllMoviesTestPage)

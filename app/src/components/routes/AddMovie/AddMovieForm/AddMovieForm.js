@@ -9,6 +9,9 @@ import styled from 'styled-components'
 import './AddMovieForm.css'
 
 import { addMovie } from '../../../../redux/actions/actions'
+import {
+  getAllMovies
+} from '../../../../redux/selectors/selectors'
 
 import RatingToStars from '../../../common/RatingToStars/RatingToStars'
 import notAvailablePoster from '../../../../img/posters/not_available_poster.png'
@@ -176,10 +179,12 @@ class AddMovieForm extends React.Component {
           <div className="card_right">
             <div className="title_dropdown">
               <Dropdown
+              searchInput={{ autoFocus: true }}
+              noResultsMessage='Type movie title for search'
                 className="Dropdown"
                 fluid
                 search
-                placeholder={this.state.errors.title || 'Start search here...'}
+                placeholder={this.state.errors.title || 'Type movie title here...'}
                 onSearchChange={this.onSearchChange}
                 options={this.state.options}
                 loading={this.state.loading}
@@ -236,7 +241,7 @@ AddMovieForm.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  movies: state.database.movies
+  movies: getAllMovies(state)
 })
 
 export default withRouter(

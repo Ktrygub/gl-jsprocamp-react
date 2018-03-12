@@ -89,6 +89,10 @@ body .card_right {
   color: white;
 }
 
+.ui.dropdown .menu>.message:not(.ui) {
+  font-size: 140%;
+}
+
 .controls {
   display: table-row;
   vertical-align: bottom;
