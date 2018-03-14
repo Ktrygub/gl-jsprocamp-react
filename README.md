@@ -1,8 +1,6 @@
-# gl-jsprocamp-react
+# MovieDB app
 
-## MovieDB app
-
-[Website](https://ktrygub.github.io/gl-jsprocamp-react/)
+[Demo: https://ktrygub.github.io/movieDB/](https://ktrygub.github.io/movieDB/)
 
 ## Description:
  

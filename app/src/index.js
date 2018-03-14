@@ -28,7 +28,7 @@ if (localStorage['ReactAppHW_V1.0.1']) {
 
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter basename="/gl-jsprocamp-react">
+    <BrowserRouter basename="/movieDB">
       <div className="app">
         <Switch>
           <Route
